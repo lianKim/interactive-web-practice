@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import PaintBoard from "./components/canvas/PaintBoard";
+import RectHandler from "./components/canvas/RectHandler";
 
 export default function App() {
   return (
     <Container>
-      <PaintBoard />
+      <RectHandler />
     </Container>
   );
 }
