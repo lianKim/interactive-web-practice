@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, usecanvasRef, useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { getRandomColor, getRandomNumber } from "../../utils/random";
 import { useCanvas } from "../../hooks/useCanvas";
@@ -6,8 +6,7 @@ import { useCanvas } from "../../hooks/useCanvas";
 export default function ReactHandler() {
   const canvasWidth = 700;
   const canvasHeight = 500;
-  const canvasRef = useCanvas(canvasWidth, canvasHeight);
-  const [ctx, setCtx] = useState();
+  const { canvasRef, ctx } = useCanvas(canvasWidth, canvasHeight);
 
   /**
    * 캔버스 좌클릭 이벤트
@@ -42,12 +41,6 @@ export default function ReactHandler() {
 
     ctx.clearRect(offsetX, offsetY, width, height);
   };
-
-  useEffect(() => {
-    const canvas = canvasRef?.current;
-    const context = canvas?.getContext("2d");
-    if (context) setCtx(context);
-  }, [canvasRef]);
 
   return (
     <Container>

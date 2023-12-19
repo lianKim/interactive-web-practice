@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 /**
  * 캔버스 초기 설정해주는 hook
  * @param {number} canvasWidth 너비
  * @param {number} canvasHeight 높이
- * @returns useRef
+ * @returns useRef, context
  */
 export const useCanvas = (canvasWidth, canvasHeight) => {
   const canvasRef = useRef(null);
+  const [ctx, setCtx] = useState();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -33,7 +34,8 @@ export const useCanvas = (canvasWidth, canvasHeight) => {
       context.fillStyle = "purple";
     };
     setCanvas();
+    setCtx(context);
   }, [canvasWidth, canvasHeight]);
 
-  return canvasRef;
+  return { canvasRef, ctx };
 };

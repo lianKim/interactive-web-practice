@@ -1,17 +1,17 @@
 import { styled } from "styled-components";
-import RectHandler from "./components/canvas/RectHandler";
+import ScrollAnimation from "./components/observer/ScrollAnimation";
 
 export default function App() {
   return (
     <Container>
-      <RectHandler />
+      <ScrollAnimation />
     </Container>
   );
 }
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+  /* width: 100%;
+  height: 100vh; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
