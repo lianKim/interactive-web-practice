@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import ScrollAnimation from "./components/observer/ScrollAnimation";
+import EyesRollingAnimation from "./components/animation/EyesRollingAnimation";
 
 export default function App() {
   return (
     <Container>
-      <ScrollAnimation />
+      <EyesRollingAnimation />
     </Container>
   );
 }
