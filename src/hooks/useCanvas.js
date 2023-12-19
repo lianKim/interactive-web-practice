@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 /**
  * 캔버스 초기 설정해주는 hook
  * @param {number} canvasWidth 너비
@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
  */
 export const useCanvas = (canvasWidth, canvasHeight) => {
   const canvasRef = useRef(null);
+  const [ctx, setCtx] = useState();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -30,10 +31,13 @@ export const useCanvas = (canvasWidth, canvasHeight) => {
       // 스타일 설정
       context.lineWidth = 5;
       context.strokeStyle = "salmon";
+      context.fillStyle = "#f5f5f5";
+      context.fillRect(0, 0, width, height);
       context.fillStyle = "purple";
     };
     setCanvas();
+    setCtx(context);
   }, [canvasWidth, canvasHeight]);
 
-  return canvasRef;
+  return { canvasRef, ctx };
 };

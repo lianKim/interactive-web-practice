@@ -1,20 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
-import { styled } from "styled-components";
+import React, { useEffect, useState } from "react";
 import { getRandomColor } from "../../utils/random";
+import { useCanvas } from "../../hooks/useCanvas";
 
 export default function PaintBoard() {
-  const canvasRef = useRef(null);
-  const [ctx, setCtx] = useState();
+  const canvasWidth = window.innerWidth;
+  const canvasHeight = window.innerHeight;
+  const { canvasRef, ctx } = useCanvas(canvasWidth, canvasHeight);
   const [isDrawing, setIsDrawing] = useState(false);
 
   // onMouseDown 이벤트
   const startDrawing = ({ nativeEvent }) => {
+    if (!ctx) return;
+
     const { offsetX, offsetY } = nativeEvent;
 
     ctx.beginPath();
     const strokeColor = getRandomColor();
     ctx.strokeStyle = strokeColor;
     ctx.moveTo(offsetX, offsetY);
+
     setIsDrawing(true);
   };
 
@@ -30,26 +34,24 @@ export default function PaintBoard() {
 
   // onMouseUp, onMouseLeave 이벤트
   const stopDrawing = () => {
+    if (!ctx || !isDrawing) return;
+
     ctx.closePath();
+
     setIsDrawing(false);
   };
 
-  // ctx에 canvas의 context 담기
+  // ctx 추가 설정
   useEffect(() => {
-    if (!canvasRef?.current) return;
+    if (!ctx) return;
 
-    const canvas = canvasRef.current;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const context = canvas.getContext("2d");
-    context.lineWidth = 5;
-
-    setCtx(context);
-  }, []);
+    ctx.lineWidth = 5;
+    ctx.fillStyle = "#111111";
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  }, [ctx]);
 
   return (
-    <Canvas
+    <canvas
       ref={canvasRef}
       onMouseDown={startDrawing}
       onMouseUp={stopDrawing}
@@ -58,7 +60,3 @@ export default function PaintBoard() {
     />
   );
 }
-
-const Canvas = styled.canvas`
-  background-color: black;
-`;
