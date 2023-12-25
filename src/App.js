@@ -1,17 +1,17 @@
 import { styled } from "styled-components";
-import ScrollAnimation from "./components/observer/ScrollAnimation";
+import CubeRotating from "./components/threejs/CubeRotating";
 
 export default function App() {
   return (
     <Container>
-      <ScrollAnimation />
+      <CubeRotating />
     </Container>
   );
 }
 
 const Container = styled.div`
-  /* width: 100%;
-  height: 100vh; */
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
