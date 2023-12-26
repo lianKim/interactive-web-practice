@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import CubeRotating from "./components/threejs/CubeRotating";
+import TextAnimation from "./components/threejs/TextAnimation";
 
 export default function App() {
   return (
     <Container>
-      <CubeRotating />
+      <TextAnimation />
     </Container>
   );
 }
