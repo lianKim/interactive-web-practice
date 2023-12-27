@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import TextAnimation from "./components/threejs/TextAnimation";
+import DancingStickman from "./components/threejs/DancingStickman";
 
 export default function App() {
   return (
     <Container>
-      <TextAnimation />
+      <DancingStickman />
     </Container>
   );
 }
