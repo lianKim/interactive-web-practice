@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { getRandomColor, getRandomNumber } from "../../utils/random";
 import { useCanvas } from "../../hooks/useCanvas";
 
-export default function ReactHandler() {
+export default function RectHandler() {
   const canvasWidth = 700;
   const canvasHeight = 500;
   const { canvasRef, ctx } = useCanvas(canvasWidth, canvasHeight);

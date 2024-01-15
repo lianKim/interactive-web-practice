@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import DancingStickman from "./components/threejs/DancingStickman";
+import BusinessCardAnimation from "./components/threejs/BusinessCard";
 
 export default function App() {
   return (
     <Container>
-      <DancingStickman />
+      <BusinessCardAnimation />
     </Container>
   );
 }
