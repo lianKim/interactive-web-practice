@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import DancingStickman from "./components/threejs/DancingStickman";
+import IPhoneController from "./components/threejs/IPhone";
 
 export default function App() {
   return (
     <Container>
-      <DancingStickman />
+      <IPhoneController />
     </Container>
   );
 }
