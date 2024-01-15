@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import IPhoneController from "./components/threejs/IPhone";
+import BusinessCardAnimation from "./components/threejs/BusinessCard";
 
 export default function App() {
   return (
     <Container>
-      <IPhoneController />
+      <BusinessCardAnimation />
     </Container>
   );
 }
