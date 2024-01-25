@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
-import BusinessCardAnimation from "./components/threejs/BusinessCard";
+import TimelineChart from "./components/animation/TimelineChart";
 
 export default function App() {
   return (
     <Container>
-      <BusinessCardAnimation />
+      <TimelineChart />
     </Container>
   );
 }
