@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
-import TimelineChart from "./components/animation/TimelineChart";
+import SectionsParallax from "./components/framerMotion/SectionsParallax";
+import GlobalStyles from "./styles/GlobalStyle";
 
 export default function App() {
   return (
-    <Container>
-      <TimelineChart />
-    </Container>
+    <>
+      <GlobalStyles />
+      <SectionsParallax />
+    </>
   );
 }
 
