@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
-import BusinessCardAnimation from "./components/threejs/BusinessCard";
+import SectionsParallax from "./components/framerMotion/SectionsParallax";
+import GlobalStyles from "./styles/GlobalStyle";
 
 export default function App() {
   return (
-    <Container>
-      <BusinessCardAnimation />
-    </Container>
+    <>
+      <GlobalStyles />
+      <SectionsParallax />
+    </>
   );
 }
 
